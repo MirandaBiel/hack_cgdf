@@ -161,8 +161,8 @@ Nessa pasta é possível ver o resultado da classificação do(s) texto(s) conti
 
 No formato .txt apenas a classificação do texto será exibida no arquivo de saída, já no formato .xlsx o arquivo de saída contém:
 - Texto original  
-- Label (0 ou 1)  
-- Status (Público ou Não Público)
+- Número da classe (0 ou 1)  
+- Classe (Público ou Não Público)
 
 ---
 
@@ -216,7 +216,7 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 ### Pré-requisitos
 - Python **3.12.5**
 
-O projeto foi desenvolvido em python na versão **3.12.5**, até o momento não encontrou-se limitações de execução para outras versões, contudo, caso o usuário deseje garantir o funcionamento do sistema, recomenda-se a versão de desenvolvimento utilizada.
+O projeto foi desenvolvido em python na versão **3.12.5**, até o momento não se encontraram limitações de execução para outras versões, contudo, caso o usuário deseje garantir o funcionamento do sistema, recomenda-se a versão de desenvolvimento utilizada.
 
 ### Criar Ambiente Virtual
 ```
@@ -274,7 +274,7 @@ Marcos Paulo de Oliveira
 - Esse formato é utilizado para classificar uma série de textos. 
 - O arquivo consiste em uma simples tabela de apenas uma coluna.
 - A primeira célula da tabela deve conter a palavra `textos`.
-- As células abaixo da primeira contém, cada uma, os textos a serem analisados.
+- As células abaixo da primeira contêm, cada uma, os textos a serem analisados.
 
 Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. Note que o primeiro elemento, na primeira linha, é a label `textos`. Em seguida, logo abaixo, vem um texto simples sem quebra de linha: `Gostaria de agradecer pelos atendimentos anteriores, obrigado!`. O segundo texto é o mesmo utilizado no item anterior (`dados/texto.txt`). O terceiro texto é novamente um texto simples: `Gostaria de solicitar acesso a um documento público`.
 
@@ -303,7 +303,7 @@ CLASSE: Não Público (Contém dados pessoais)
 ### 10.2. Saída em `resultados/textos_classificados.xlsx`
 - Consiste em uma tabela com 3 colunas.
 - A primeira linha contém a legenda de cada coluna.
-- A primeira coluna contém os textos que formam classificados.
+- A primeira coluna contém os textos que foram classificados.
 - A segunda coluna contém os resultados numéricos da classificação: 0 ou 1.
 - A terceira coluna contém o status da classificação: Público ou Não Público. 
 
