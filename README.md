@@ -223,7 +223,8 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 
 ### Pré-requisitos
 - Python **3.12.5**
-- Windows ou Linux
+
+O projeto foi desenvolvido em python na versão **3.12.5**, até o momento não encontrou-se limitações de execução para outras versões, contudo, caso o usuário deseje garantir o funcionamento do sistema, recomenda-se a versão de desenvolvimento utilizada.
 
 ### Criar Ambiente Virtual
 ```
@@ -240,6 +241,8 @@ Linux:
 ```
 source env_hack_gdf/bin/activate
 ```
+
+Dica para VS Code: Para garantir que o projeto utilize as dependências corretas, pressione Ctrl + Shift + P, selecione a opção Python: Select Interpreter e escolha o interpretador correspondente ao ambiente virtual criado.
 
 ### Instalar Dependências
 ```
