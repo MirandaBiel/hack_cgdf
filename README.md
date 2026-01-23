@@ -172,7 +172,6 @@ No formato .txt apenas a classificação do texto será exibida no arquivo de sa
 - Label (0 ou 1)  
 - Status (Público ou Não Público)
 
-
 ---
 
 ## 4.5. Pasta `env_hack_gdf/` — Ambiente Virtual
@@ -209,12 +208,14 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 
 ---
 
-## 7. Fluxo de Trabalho
+## 7. Fluxo de Trabalho - Como usar o modelo
 
-1. **Edição**: o usuário insere os textos nos arquivos localizados em `dados/`  
-2. **Execução**: executa o script correspondente ao tipo de arquivo  
+1. **Edição**: o usuário insere o(s) texto(s) nos arquivos localizados em `dados/`, escolhe-se o formato que preferir (recomenda-se o .xlsx)  
+2. **Execução**: executa o script correspondente ao tipo de arquivo editado 
 3. **Processamento**: a IA realiza a classificação automaticamente  
-4. **Resultado**: os arquivos classificados são salvos em `resultados/`
+4. **Resultado**: os arquivos classificados são salvos em `resultados/` no mesmo formato da entrada
+
+> **Observação:** Já existem exemplos de arquivos .txt, .csv e .xlsx em `dados/`. O usuário pode inserir um novo arquivo de mesmo nome e apagar o antigo ou simplesmente editar com os textos desejados.
 
 ---
 
