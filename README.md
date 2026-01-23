@@ -3,7 +3,7 @@
 ## 1. Objetivo da Solução
 
 Esta solução tecnológica foi desenvolvida para o **1º Hackathon em Controle Social: Desafio Participa DF**.  
-O sistema atua como uma camada inteligente de segurança no ecossistema de transparência pública, automatizando a identificação de **dados pessoais** (nome, CPF, RG, contatos, endereço específico, entre outros) em pedidos de acesso à informação.
+O sistema atua como uma camada inteligente de segurança no ecossistema de transparência pública, automatizando a identificação de **dados pessoais** (nome, CPF, RG, contatos, entre outros) em pedidos de acesso à informação.
 
 O objetivo principal é assegurar que o **direito constitucional de acesso à informação** não entre em conflito com o **direito à privacidade**, prevenindo o vazamento inadvertido de dados sensíveis e apoiando os processos de auditoria e conformidade conduzidos pela **Controladoria-Geral do Distrito Federal (CGDF)**.
 
@@ -11,10 +11,15 @@ O objetivo principal é assegurar que o **direito constitucional de acesso à in
 
 ## 2. Proposta de Solução e Arquitetura
 
-A solução utiliza um modelo de **rede neural profunda** baseado em arquiteturas modernas de linguagem natural com mecanismos de atenção (transformers).  
-Diferentemente de abordagens puramente estatísticas ou baseadas em expressões regulares (Regex), o modelo foi submetido a **Fine-Tuning** com um corpus extensivo em língua portuguesa, priorizando textos administrativos e jurídicos utilizados no contexto brasileiro.
+A solução baseia-se em uma arquitetura de Rede Neural Profunda utilizando o modelo BERT (Bidirectional Encoder Representations from Transformers) como base. Diferente de abordagens genéricas, esta implementação é um modelo autoral otimizado especificamente para o Desafio Participa DF.
 
-> **Observação:** devido ao tamanho do modelo treinado, ele não está versionado diretamente no repositório.  
+Customização da Camada de Saída: Foi implementada uma camada densa superior de classificação binária ($k=2$), projetada para mapear as representações contextuais do BERT diretamente nas classes alvo: Público ou Contém Dados Pessoais (Não Público).
+
+Fine-Tuning Especializado: O modelo passou por um processo de ajuste fino (Fine-Tuning) utilizando uma base de dados própria, composta por textos administrativos e jurídicos do cenário brasileiro. Isso permite que a IA compreenda as nuances linguísticas de pedidos de informação e identifique dados sensíveis com maior precisão do que modelos estatísticos simples ou Regex.
+
+Foco em Desempenho (P1): A arquitetura foi refinada para maximizar a relação entre Precisão e Sensibilidade (Recall), garantindo que o modelo minimize falsos negativos no tratamento de dados pessoais.
+
+> **Observação:** Devido ao volume de parâmetros após o treinamento, o modelo não está versionado diretamente no repositório para manter a organização.
 O modelo encontra-se hospedado no Hugging Face e pode ser obtido em:  
 https://huggingface.co/MirandaBiel/IA_GDF/tree/main  
 O download é realizado automaticamente por meio do script `download_modelo.py`.
