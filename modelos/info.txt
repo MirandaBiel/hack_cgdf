@@ -1,0 +1,5 @@
+Devido ao volume de parâmetros após o treinamento, o modelo não está versionado diretamente no repositório para manter a organização e a leveza do projeto. O modelo encontra-se hospedado no Hugging Face e pode ser obtido em: https://huggingface.co/MirandaBiel/IA_CGDF/tree/main.
+
+O download é realizado de forma automática por meio do script download_modelo.py. Além disso, para facilitar a usabilidade, os scripts de classificação e inferência possuem uma rotina de verificação integrada: ao serem executados, eles checam se o modelo está presente na pasta correta e, caso não o encontrem, realizam o download automaticamente antes de iniciar o processamento.
+
+Caso prefira realizar o download manualmente, basta acessar o link mencionado e baixar o conteúdo completo. Para que o sistema funcione corretamente, a pasta IA_CGDF (contendo os arquivos de configuração, pesos e tokenizador) deve ser inserida integralmente dentro do diretório \modelos localizado na raiz do projeto.
