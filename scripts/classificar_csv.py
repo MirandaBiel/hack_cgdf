@@ -3,6 +3,21 @@ import pandas as pd
 import re
 import os
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from huggingface_hub import snapshot_download # Interface para comunicação com o Hugging Face
+
+def gerenciar_modelo_autoral(caminho_destino):
+    """
+    Assegura a disponibilidade dos pesos do modelo para a inferência. Se os arquivos
+    não estiverem presentes no diretório especificado, o download é realizado de 
+    forma automática a partir do repositório autoral no Hugging Face para permitir
+    a execução imediata da classificação.
+    """
+    if not os.path.exists(caminho_destino):
+        print(f"Diretório do modelo não localizado em: {caminho_destino}")
+        print("Iniciando download automático do repositório MirandaBiel/IA_GDF...")
+        # Realiza o download dos arquivos do modelo autoral para a pasta local
+        snapshot_download(repo_id="MirandaBiel/IA_GDF", local_dir=caminho_destino)
+        print("Modelo autoral baixado e pronto para uso.")
 
 def limpar_texto(text):
     """
@@ -27,6 +42,10 @@ def classificar_csv():
     
     # Define os caminhos absolutos para o modelo, entrada de dados e diretório de saída
     model_path = os.path.join(base_dir, "modelos", "IA_GDF")
+    
+    # Valida a presença do modelo no caminho especificado antes de prosseguir
+    gerenciar_modelo_autoral(model_path)
+    
     input_path = os.path.join(base_dir, "dados", "textos.csv")
     output_path = os.path.join(base_dir, "resultados", "textos_classificados.csv")
     

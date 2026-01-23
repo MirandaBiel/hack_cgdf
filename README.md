@@ -1,304 +1,265 @@
-# README -- Motor de Classificação Semântica para Proteção de Dados (IA GDF)
+# README  
+# Motor de Classificação Semântica para Proteção de Dados (IA GDF)
 
 ## 1. Objetivo da Solução
 
-Esta solução tecnológica foi desenvolvida para o **1º Hackathon em
-Controle Social: Desafio Participa DF**.\
-O sistema atua como uma camada inteligente de segurança no ecossistema
-de transparência pública, automatizando a identificação de **dados
-pessoais** (nome, CPF, RG, contatos, endereço específico, entre outros)
-em pedidos de acesso à informação (LAI).
+Esta solução tecnológica foi desenvolvida para o **1º Hackathon em Controle Social: Desafio Participa DF**.  
+O sistema atua como uma camada inteligente de segurança no ecossistema de transparência pública, automatizando a identificação de **dados pessoais** (nome, CPF, RG, contatos, endereço específico, entre outros) em pedidos de acesso à informação.
 
-O objetivo é garantir que o **direito à informação** não colida com o
-**direito à privacidade**, prevenindo o vazamento inadvertido de dados
-sensíveis e apoiando os processos de auditoria da **Controladoria-Geral
-do Distrito Federal (CGDF)**.
+O objetivo principal é assegurar que o **direito constitucional de acesso à informação** não entre em conflito com o **direito à privacidade**, prevenindo o vazamento inadvertido de dados sensíveis e apoiando os processos de auditoria e conformidade conduzidos pela **Controladoria-Geral do Distrito Federal (CGDF)**.
 
-------------------------------------------------------------------------
+---
 
 ## 2. Proposta de Solução e Arquitetura
 
-A solução utiliza um modelo de **rede neural profunda** baseado em
-codificadores de linguagem com mecanismos de atenção (transformers).\
-Diferente de abordagens puramente estatísticas ou baseadas em Regex, o
-modelo passou por **Fine-Tuning** utilizando um amplo corpus em língua
-portuguesa, com foco em sintaxe administrativa e escrita brasileira.
+A solução utiliza um modelo de **rede neural profunda** baseado em arquiteturas modernas de linguagem natural com mecanismos de atenção (transformers).  
+Diferentemente de abordagens puramente estatísticas ou baseadas em expressões regulares (Regex), o modelo foi submetido a **Fine-Tuning** com um corpus extensivo em língua portuguesa, priorizando textos administrativos e jurídicos utilizados no contexto brasileiro.
+
+> **Observação:** devido ao tamanho do modelo treinado, ele não está versionado diretamente no repositório.  
+O modelo encontra-se hospedado no Hugging Face e pode ser obtido em:  
+https://huggingface.co/MirandaBiel/IA_GDF/tree/main  
+O download é realizado automaticamente por meio do script `download_modelo.py`.
 
 ### Características Técnicas do Motor de IA
 
-#### **Arquitetura Baseada em Contexto**
+#### Arquitetura Baseada em Contexto
+O modelo realiza interpretação bidirecional das frases, compreendendo cada termo com base no contexto global do texto.
 
-O modelo interpreta frases de forma bidirecional, compreendendo cada
-palavra com base no contexto global.
+#### Classificação Binária
+O cabeçote de saída reduz as representações internas para duas classes:
+- **0 — Público (Livre)**
+- **1 — Não Público (Sensível)**
 
-#### **Classificação Binária**
+#### Tokenização por Subpalavras
+A tokenização permite lidar adequadamente com:
+- Termos técnicos
+- Palavras truncadas
+- Erros de digitação
+- Variações morfológicas
 
-O cabeçote final reduz as representações internas a duas classes: - **0
--- Público (Livre)** - **1 -- Não Público (Sensível)**
+Essa abordagem reduz a perda semântica e aumenta a robustez da classificação.
 
-#### **Tokenização por Sub-palavras**
+---
 
-Permite analisar: - Termos técnicos - Palavras truncadas - Erros de
-digitação - Variações morfológicas
+## 3. Inteligência Artificial vs. Expressões Regulares (Regex)
 
-Isso evita perda de significado e aumenta a robustez.
+A utilização de Inteligência Artificial foi escolhida pelos seguintes motivos:
 
-------------------------------------------------------------------------
+### Variabilidade de Escrita
+Um CPF pode aparecer de diversas formas:
+- 123.456.789-00  
+- 12345678900  
+- Representação por extenso
 
-## 3. Inteligência Artificial vs. Expressões Regulares (Regex)
+Expressões regulares falham facilmente diante dessas variações, enquanto a IA reconhece o padrão semântico subjacente.
 
-Optou-se por IA pelas seguintes razões:
+### Compreensão de Contexto
+A IA distingue corretamente situações como:
+- “processo 1234567/2023” — **público**
+- “telefone 123456789” — **privado**
 
-### **Variabilidade**
+Esse nível de diferenciação só é possível com análise contextual.
 
-Um CPF pode ser escrito como: - 123.456.789-00\
-- 12345678900\
-- "um, dois, três..." (por extenso)
+### Redução de Falsos Positivos
+A abordagem semântica evita bloqueios indevidos em casos como:
+- Código de contrato
+- Número de documento administrativo
+- Identificadores de processos públicos
 
-Regex falha facilmente diante dessas variações; a IA compreende o padrão
-semântico.
+---
 
-### **Compreensão de Contexto**
+## 4. Estrutura do Projeto
 
-A IA diferencia textos como: - "processo 1234567/2023" (público)\
-- "telefone 123456789" (privado)
+```
+├── modelos/
+│   └── IA_GDF/
+│       ├── model.safetensors
+│       ├── config.json
+│       ├── vocab.txt
+│       ├── tokenizer.json
+│       ├── tokenizer_config.json
+│       └── special_tokens_map.json
+├── scripts/
+│   ├── classificar_txt.py
+│   ├── classificar_csv.py
+│   ├── classificar_xlsx.py
+│   └── download_modelo.py
+├── dados/
+│   ├── texto.txt
+│   ├── textos.csv
+│   └── textos.xlsx
+├── resultados/
+│   ├── texto_classificado.txt
+│   ├── textos_classificados.csv
+│   └── textos_classificados.xlsx
+├── env_hack_gdf/
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
 
-Isso só é possível com interpretação contextual.
+---
 
-### **Redução de Falsos Positivos**
+## 4.1. Pasta `modelos/IA_GDF/` — Núcleo da Inteligência
 
-A IA impede bloqueios indevidos em casos como: - "código de contrato" -
-"número do documento administrativo" - "identificador de ocorrência
-pública"
+| Arquivo | Função |
+|-------|-------|
+| `model.safetensors` | Pesos da rede neural treinada, representando o conhecimento adquirido no Fine-Tuning |
+| `config.json` | Definição da arquitetura interna do modelo (camadas, atenção, hiperparâmetros) |
+| `vocab.txt` | Vocabulário baseado em subpalavras |
+| `tokenizer.json` | Regras completas de tokenização |
+| `tokenizer_config.json` | Configurações de pré-processamento |
+| `special_tokens_map.json` | Mapeamento de tokens especiais (CLS, SEP, PAD, etc.) |
 
-------------------------------------------------------------------------
+---
 
-## 4. Estrutura Detalhada do Projeto
+## 4.2. Pasta `scripts/` — Lógica de Execução
 
-    ├── modelos/
-    │   └── IA_GDF/
-    │       ├── model.safetensors
-    │       ├── config.json
-    │       ├── vocab.txt
-    │       ├── tokenizer.json
-    │       ├── tokenizer_config.json
-    │       └── special_tokens_map.json
-    │
-    ├── scripts/
-    │   ├── classificar_txt.py
-    │   ├── classificar_csv.py
-    │   └── classificar_xlsx.py
-    │
-    ├── dados/
-    │   ├── texto.txt
-    │   ├── textos.csv
-    │   └── textos.xlsx
-    │
-    ├── resultados/
-    │   ├── texto_classificado.txt
-    │   ├── textos_classificados.csv
-    │   └── textos_classificados.xlsx
-    │
-    └── env_hack_gdf/
-
-------------------------------------------------------------------------
-
-## 4.1. Pasta `modelos/IA_GDF/` -- Núcleo da Inteligência
-
-  -----------------------------------------------------------------------
-  Arquivo                             Função
-  ----------------------------------- -----------------------------------
-  `model.safetensors`                 Pesos da rede neural treinada;
-                                      representa o conhecimento adquirido
-                                      no Fine-Tuning.
-
-  `config.json`                       Arquitetura interna: número de
-                                      camadas, mecanismos de atenção,
-                                      hiperparâmetros.
-
-  `vocab.txt`                         Vocabulário técnico baseado em
-                                      sub-palavras.
-
-  `tokenizer.json` e                  Regras de tokenização e
-  `tokenizer_config.json`             pré-processamento.
-
-  `special_tokens_map.json`           Mapeamento de tokens especiais
-                                      (CLS, SEP, PAD, etc.).
-  -----------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-## 4.2. Pasta `scripts/` -- Lógica de Execução
+### `download_modelo.py`
+Responsável por realizar o download automático do modelo a partir do Hugging Face, caso ele ainda não esteja disponível localmente.  
+Os demais scripts verificam a existência do modelo antes da execução.
 
 ### `classificar_txt.py`
-
-Processamento de arquivos simples (texto único).\
-Ideal para auditorias pontuais.
+Processa arquivos de texto simples, sendo indicado para auditorias pontuais.
 
 ### `classificar_csv.py`
-
-Processamento em lote utilizando dados estruturados.\
-Indicado para grandes volumes.
+Executa classificação em lote utilizando arquivos CSV estruturados.
 
 ### `classificar_xlsx.py`
+Versão especializada para arquivos Excel, preservando quebras de linha, codificação e caracteres especiais.
 
-Versão especializada para Excel, preservando quebras de linha e
-caracteres especiais.
+---
 
-------------------------------------------------------------------------
+## 4.3. Pasta `dados/` — Arquivos de Entrada
 
-## 4.3. Pasta `dados/` -- Entradas
+- `texto.txt`: texto único para análise individual  
+- `textos.csv`: conjunto estruturado para análise em massa  
+- `textos.xlsx`: alternativa recomendada ao CSV, reduzindo problemas de formatação
 
--   `texto.txt`: texto único para classificação individual\
--   `textos.csv`: lista estruturada para análise em massa\
--   `textos.xlsx`: alternativa preferida ao CSV (evita erros de
-    formatação)
+---
 
-------------------------------------------------------------------------
+## 4.4. Pasta `resultados/` — Arquivos de Saída
 
-## 4.4. Pasta `resultados/` -- Saídas
+- `texto_classificado.txt`  
+- `textos_classificados.csv`  
+- `textos_classificados.xlsx`  
 
--   `texto_classificado.txt`\
--   `textos_classificados.csv`\
--   `textos_classificados.xlsx`
+Cada saída contém:
+- Texto original  
+- Label (0 ou 1)  
+- Status (Público ou Não Público)
 
-Cada saída contém: - texto original\
-- `label` (0 ou 1)\
-- `status` (Público ou Não Público)
+---
 
-------------------------------------------------------------------------
+## 4.5. Pasta `env_hack_gdf/` — Ambiente Virtual
 
-## 4.5. Pasta `env_hack_gdf/` -- Ambiente Virtual
+Ambiente Python isolado utilizado no projeto, contendo:
+- Python **3.12.5**
+- Dependências específicas para execução estável
 
-Ambiente Python isolado contendo: - Python **3.12.5** - Dependências
-certificadas para execução estável
+---
 
-------------------------------------------------------------------------
+## 5. Arquivo `requirements.txt`
 
-## 5. Fluxo de Trabalho (Workflow)
+O arquivo `requirements.txt` lista todas as bibliotecas Python necessárias para a execução do projeto, garantindo reprodutibilidade do ambiente e compatibilidade entre sistemas.
 
-### **1. Edição**
+A instalação das dependências é realizada automaticamente por meio do comando:
 
-O usuário insere os textos nos arquivos dentro de **dados/**.
+```
+pip install -r requirements.txt
+```
 
-### **2. Execução**
+---
 
-Roda o script referente ao tipo de arquivo.
+## 6. Arquivo `.gitignore`
 
-### **3. Produção**
+O arquivo `.gitignore` define quais arquivos e diretórios não devem ser versionados no repositório Git, incluindo:
+- Ambiente virtual (`env_hack_gdf/`)
+- Arquivos temporários
+- Cache de execução
+- Modelos de grande porte baixados externamente
 
-A IA processa automaticamente e salva em **resultados/**.
+Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 
-------------------------------------------------------------------------
+---
 
-## 6. Instalação e Configuração
+## 7. Fluxo de Trabalho
 
-### **Pré-requisitos**
+1. **Edição**: o usuário insere os textos nos arquivos localizados em `dados/`  
+2. **Execução**: executa o script correspondente ao tipo de arquivo  
+3. **Processamento**: a IA realiza a classificação automaticamente  
+4. **Resultado**: os arquivos classificados são salvos em `resultados/`
 
--   Python **3.12.5**
--   Windows ou Linux
+---
 
-### **Criar Ambiente Virtual**
+## 8. Instalação e Configuração
 
-    python -m venv env_hack_gdf
+### Pré-requisitos
+- Python **3.12.5**
+- Windows ou Linux
 
-### **Ativar Ambiente**
+### Criar Ambiente Virtual
+```
+python -m venv env_hack_gdf
+```
 
+### Ativar Ambiente
 Windows:
-
-    .\env_hack_gdf\Scripts\activate
+```
+.\env_hack_gdf\Scripts\activate
+```
 
 Linux:
-
-    source env_hack_gdf/bin/activate
-
-### **Instalar Dependências**
-
-    pip install -r requirements.txt
-
-------------------------------------------------------------------------
-
-## 7. Como Usar (Entrada e Saída de Dados)
-
-### 7.1. **Análise Individual (TXT)**
-
-Entrada:
-
-    dados/texto.txt
-
-Execução:
-
-    python scripts/classificar_txt.py
-
-Saída:
-
-    resultados/texto_classificado.txt
-
-------------------------------------------------------------------------
-
-### 7.2. **Análise em Lote (CSV / XLSX)**
-
-Entrada: - `dados/textos.csv` - `dados/textos.xlsx`
-
-Execução:
-
-    python scripts/classificar_csv.py
-
-Ou:
-
-    python scripts/classificar_xlsx.py
-
-Saída: - `resultados/textos_classificados.csv` -
-`resultados/textos_classificados.xlsx`
-
-------------------------------------------------------------------------
-
-## 8. Especificações e Formatos de Dados
-
-### 8.1. **Requisito de Cabeçalho**
-
-A primeira coluna deve se chamar exatamente:
-
-    textos
-
-### 8.2. **Regras para CSV**
-
--   Cada texto deve estar entre **aspas duplas**:
-
-```{=html}
-<!-- -->
 ```
-    "Texto, com vírgula"
+source env_hack_gdf/bin/activate
+```
 
--   Evita problemas com separadores, vírgulas e quebras.
+### Instalar Dependências
+```
+pip install -r requirements.txt
+```
 
-### 8.3. **Exemplos de Entrada**
+---
 
-#### **TXT**
+## 9. Formatos e Regras de Dados
 
-    Solicito acesso aos dados do servidor Fulano...
+### 9.1. Cabeçalho Obrigatório
+A primeira coluna dos arquivos CSV ou XLSX deve se chamar exatamente:
 
-#### **CSV**
-
-``` csv
+```
 textos
-"Solicito acesso ao documento de Fulano, CPF 123..."
-"Pedido de informação sobre o contrato 45/2023."
 ```
 
-------------------------------------------------------------------------
+### 9.2. Regras para CSV
+- Cada texto deve estar entre aspas duplas
+- Essa prática evita erros com vírgulas, separadores e quebras de linha
 
-## 9. Formato das Saídas
+Exemplo:
+```
+"textos"
+"Texto com vírgula, sem erro"
+```
 
-### **Saída em CSV/XLSX**
+### 9.3. Exemplo de Estrutura XLSX
 
-Inclui: - texto original\
-- label (0/1)\
-- status (Público / Não Público)
+| textos |
+|--------|
+| Solicito acesso ao documento do servidor Fulano |
+| Pedido de informação sobre o contrato nº 45/2023 |
+| Relatório contendo telefone e endereço do solicitante |
 
-### **Saída em TXT**
+---
 
-    RESULTADO: 1
-    STATUS: Não Público (Contém dados pessoais)
+## 10. Formato das Saídas
 
-------------------------------------------------------------------------
+### Saída em CSV/XLSX
+Inclui:
+- Texto original  
+- Label (0 ou 1)  
+- Status (Público / Não Público)
+
+### Saída em TXT
+```
+RESULTADO: 1
+STATUS: Não Público (Contém dados pessoais)
+```
