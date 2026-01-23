@@ -12,7 +12,7 @@ def download_model():
     """
     
     # Identificador do repositório autoral no Hugging Face
-    model_id = "MirandaBiel/IA_GDF"
+    model_id = "MirandaBiel/IA_CGDF"
     
     # Caminho local definido para armazenamento (conforme organização do projeto)
     save_path = "../modelos"

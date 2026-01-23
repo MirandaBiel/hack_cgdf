@@ -14,9 +14,9 @@ def gerenciar_modelo_autoral(caminho_destino):
     """
     if not os.path.exists(caminho_destino):
         print(f"Diretório do modelo não localizado em: {caminho_destino}")
-        print("Iniciando download automático do repositório MirandaBiel/IA_GDF...")
+        print("Iniciando download automático do repositório MirandaBiel/IA_CGDF...")
         # Realiza o download dos arquivos do modelo autoral para a pasta local
-        snapshot_download(repo_id="MirandaBiel/IA_GDF", local_dir=caminho_destino)
+        snapshot_download(repo_id="MirandaBiel/IA_CGDF", local_dir=caminho_destino)
         print("Modelo autoral baixado e pronto para uso.")
 
 def limpar_texto(text):
@@ -41,7 +41,7 @@ def classificar_xlsx():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
     # Define os caminhos absolutos para o modelo, entrada de dados e diretório de saída
-    model_path = os.path.join(base_dir, "modelos", "IA_GDF")
+    model_path = os.path.join(base_dir, "modelos", "IA_CGDF")
     
     # Valida a presença do modelo no caminho especificado antes de prosseguir
     gerenciar_modelo_autoral(model_path)

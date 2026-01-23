@@ -21,7 +21,7 @@ Foco em Desempenho (P1): A arquitetura foi refinada para maximizar a relação e
 
 > **Observação:** Devido ao volume de parâmetros após o treinamento, o modelo não está versionado diretamente no repositório para manter a organização.
 O modelo encontra-se hospedado no Hugging Face e pode ser obtido em:  
-https://huggingface.co/MirandaBiel/IA_GDF/tree/main  
+https://huggingface.co/MirandaBiel/IA_CGDF/tree/main  
 O download é realizado automaticamente por meio do script `download_modelo.py`.
 
 ### Características Técnicas do Motor de IA
@@ -76,7 +76,7 @@ A abordagem semântica evita bloqueios indevidos em casos como:
 
 ```
 ├── modelos/
-│   └── IA_GDF/
+│   └── IA_CGDF/
 │       ├── model.safetensors
 │       ├── config.json
 │       ├── vocab.txt
@@ -104,7 +104,7 @@ A abordagem semântica evita bloqueios indevidos em casos como:
 
 ---
 
-## 4.1. Pasta `modelos/IA_GDF/` — Núcleo da Inteligência
+## 4.1. Pasta `modelos/IA_CGDF/` — Núcleo da Inteligência
 
 | Arquivo | Função |
 |-------|-------|
