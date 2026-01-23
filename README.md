@@ -245,6 +245,9 @@ source env_hack_gdf/bin/activate
 Dica para VS Code: Para garantir que o projeto utilize as dependências corretas, pressione `Ctrl + Shift + P`, selecione a opção `Python: Select Interpreter` e escolha o interpretador correspondente ao ambiente virtual criado.
 
 ### Instalar Dependências
+
+Com o ambiente virtual ativado, execute o comando:
+
 ```
 pip install -r requirements.txt
 ```
