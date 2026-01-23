@@ -22,7 +22,7 @@ Foco em Desempenho (P1): A arquitetura foi refinada para maximizar a relação e
 > **Observação:** Devido ao volume de parâmetros após o treinamento, o modelo não está versionado diretamente no repositório para manter a organização.
 O modelo encontra-se hospedado no Hugging Face e pode ser obtido em:  
 https://huggingface.co/MirandaBiel/IA_CGDF/tree/main  
-O download é realizado automaticamente por meio do script `download_modelo.py`.
+O download é realizado automaticamente por meio do script `download_modelo.py` ou pode ser feito manualmente, bastando inserir o modelo na pasta `\modelos`.
 
 ### Características Técnicas do Motor de IA
 
