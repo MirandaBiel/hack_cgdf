@@ -1,4 +1,3 @@
-# README  
 # Motor de Classificação Semântica para Proteção de Dados (IA GDF)
 
 ## 1. Objetivo da Solução
