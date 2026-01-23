@@ -207,7 +207,7 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 3. **Processamento**: a IA realiza a classificação automaticamente  
 4. **Resultado**: os arquivos classificados são salvos em `resultados/` no mesmo formato da entrada
 
-> **Observação:** Já existem exemplos de arquivos .txt e .xlsx em `dados/`. O usuário pode inserir um novo arquivo de mesmo nome e apagar o antigo ou simplesmente editar com os textos desejados.
+> **Observação:** Já existem exemplos de arquivos .txt e .xlsx em `dados/`. O usuário pode inserir um novo arquivo de mesmo nome e apagar o antigo, ou simplesmente editar os existentes com os textos desejados.
 
 ---
 
@@ -249,8 +249,8 @@ pip install -r requirements.txt
 ## 9. Formatos de entrada dos dados
 
 ### 9.1. Regras para `dados/texto.txt`
-- Não há restições claras, basta escrever no arquivo o texto a ser classificado.
-- Suporta e classifica apenas 1 texto.
+- Esse formato é utilizado para classificar apenas 1 único texto.
+- Não há restrições claras, basta escrever no arquivo o texto a ser classificado.
 
 Exemplo (**com dados fictícios**):
 ```
@@ -269,42 +269,14 @@ Atenciosamente,
 Marcos Paulo de Oliveira
 ```
 
-### 9.2. Regras para `dados/textos.csv`
-- O arquivo possui apenas uma coluna de dados.
-- O arquivo deve conter obrigatoriamente a label "textos" como primeiro elemento, em seguida, nas próximas linhas adiciona-se os textos a serem analisados.
-- Use quebra de linha para separar os textos.
-- Use aspas quando o texto em si possuir quebra de linha, isso impede que ele seja interpretado como dois ou mais textos diferentes. Também podem ser usadas em textos simples, sem quebras de linha.
-- Apesar de totalmente funcional, dependendo da complexidade dos textos a serem classificados (quebras de línhas, tópicos, pontuação...), formatar esse arquivo corretamente pode se tornar uma tarefa difícil. É possível que o CSVLint falhe devido a formatação. Para evitar problemas recomenda-se usar o formato .xlsx.
+### 9.2. Regras para `dados/textos.xlsx`
 
-Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. Note que o primeiro elemento, na primeira linha, é a label `"textos"`. Em seguida vem um texto simples sem quebra de linha: `Gostaria de agradecer pelos atendimentos anteriores, obrigado!`. O segundo texto é o mesmo utilizado no item anterior (`dados/texto.txt`). O terceiro texto é novamente um texto simples: `Gostaria de solicitar acesso a um documento público`.
-
-
-```
-"textos"
-Gostaria de agradecer pelos atendimentos anteriores, obrigado!
-"Protocolo de Reclamação - Ouvidoria Saúde
-
-Gostaria de registrar uma reclamação formal quanto ao atendimento recebido no Hospital Regional da Asa Norte (HRAN) no dia de ontem.
-
-Fui atendido pelo médico Dr. Renato Guimarães, CRM 12345-DF, que se recusou a solicitar os exames básicos de imagem, mesmo eu apresentando dores agudas.
-
-Além disso, a atendente da recepção, Sra. Eliane Martins, foi extremamente ríspida durante o processo de triagem.
-
-Solicito providências quanto à conduta dos profissionais citados.
-
-Atenciosamente,
-
-Marcos Paulo de Oliveira"
-"Gostaria de solicitar acesso a um documento público"
-```
-
-### 9.3. Regras para `dados/textos.xlsx`
-
-- Esse é o formato mais recomendado para trabalhar com mais de 1 texto. Trata-se de uma simples tabela de apenas uma coluna.
-- A primeira célula da tabela deve se chamar `textos`.
+- Esse formato é utilizado para classificar uma série de textos. 
+- O arquivo consiste em uma simples tabela de apenas uma coluna.
+- A primeira célula da tabela deve conter a palavra `textos`.
 - As células abaixo da primeira contém, cada uma, os textos a serem analisados.
 
-Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. Note que o primeiro elemento, na primeira linha, é a label `textos`. Em seguida vem um texto simples sem quebra de linha: `Gostaria de agradecer pelos atendimentos anteriores, obrigado!`. O segundo texto é o mesmo utilizado no item anterior (`dados/texto.txt`). O terceiro texto é novamente um texto simples: `Gostaria de solicitar acesso a um documento público`.
+Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. Note que o primeiro elemento, na primeira linha, é a label `textos`. Em seguida, logo abaixo, vem um texto simples sem quebra de linha: `Gostaria de agradecer pelos atendimentos anteriores, obrigado!`. O segundo texto é o mesmo utilizado no item anterior (`dados/texto.txt`). O terceiro texto é novamente um texto simples: `Gostaria de solicitar acesso a um documento público`.
 
 | textos |
 | :--- |
