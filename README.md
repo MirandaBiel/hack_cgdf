@@ -154,7 +154,7 @@ Para realizar a classificação de um texto individual ou de volumes em lote, ba
 
 ## 4.4. Pasta `resultados/` — Arquivos de Saída
 
-Nessa pasta é possível ver o resultado da classificação de cada arquivo em `dados/`.
+Nessa pasta é possível ver o resultado da classificação do(s) texto(s) contidos em `dados/`.
 
 - `texto_classificado.txt`: resultado da classificação de `texto.txt`. 
 - `textos_classificados.xlsx`: resultado da classificação de `textos.xlsx`.  
@@ -169,10 +169,10 @@ No formato .txt apenas a classificação do texto será exibida no arquivo de sa
 ## 4.5. Pasta `env_hack_cgdf/` — Ambiente Virtual
 
 Ambiente Python isolado utilizado no projeto, contendo:
-- Python **3.12.5** (é provável que outras verões sejam suportadas, mas a 3.12.5 é garantida)
+- Python **3.12.5** (é provável que outras versões sejam suportadas, mas a 3.12.5 é garantida)
 - Dependências específicas para execução estável (detalhadas em requirements.txt)
 
-O ambiente será gerado e ativado por meio dos comandos listados mais abaixo.
+O ambiente é gerado e ativado por meio dos comandos listados mais abaixo.
 
 ---
 
@@ -202,12 +202,12 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 
 ## 7. Fluxo de Trabalho - Como usar o modelo
 
-1. **Edição**: o usuário insere o(s) texto(s) nos arquivos localizados em `dados/`, escolhe-se o formato que preferir (recomenda-se o .xlsx)  
-2. **Execução**: executa o script correspondente ao tipo de arquivo editado 
+1. **Edição**: o usuário insere o(s) texto(s) nos arquivos localizados em `dados/`, escolhe-se o formato que preferir, sendo .txt utilizado para classificar um único texto e .xlsx para classificar uma série de textos.
+2. **Execução**: executa o script correspondente ao tipo de arquivo editado
 3. **Processamento**: a IA realiza a classificação automaticamente  
 4. **Resultado**: os arquivos classificados são salvos em `resultados/` no mesmo formato da entrada
 
-> **Observação:** Já existem exemplos de arquivos .txt, .csv e .xlsx em `dados/`. O usuário pode inserir um novo arquivo de mesmo nome e apagar o antigo ou simplesmente editar com os textos desejados.
+> **Observação:** Já existem exemplos de arquivos .txt e .xlsx em `dados/`. O usuário pode inserir um novo arquivo de mesmo nome e apagar o antigo ou simplesmente editar com os textos desejados.
 
 ---
 
