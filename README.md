@@ -86,16 +86,13 @@ A abordagem semântica evita bloqueios indevidos em casos como:
 │       └── special_tokens_map.json
 ├── scripts/
 │   ├── classificar_txt.py
-│   ├── classificar_csv.py
 │   ├── classificar_xlsx.py
 │   └── download_modelo.py
 ├── dados/
 │   ├── texto.txt
-│   ├── textos.csv
 │   └── textos.xlsx
 ├── resultados/
 │   ├── texto_classificado.txt
-│   ├── textos_classificados.csv
 │   └── textos_classificados.xlsx
 ├── env_hack_cgdf/
 ├── .gitignore
