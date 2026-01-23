@@ -1,4 +1,4 @@
-# Motor de Classificação Semântica para Proteção de Dados (IA GDF)
+# Motor de Classificação Semântica para Proteção de Dados (IA CGDF)
 
 ## 1. Objetivo da Solução
 
@@ -97,7 +97,7 @@ A abordagem semântica evita bloqueios indevidos em casos como:
 │   ├── texto_classificado.txt
 │   ├── textos_classificados.csv
 │   └── textos_classificados.xlsx
-├── env_hack_gdf/
+├── env_hack_cgdf/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
@@ -174,7 +174,7 @@ No formato .txt apenas a classificação do texto será exibida no arquivo de sa
 
 ---
 
-## 4.5. Pasta `env_hack_gdf/` — Ambiente Virtual
+## 4.5. Pasta `env_hack_cgdf/` — Ambiente Virtual
 
 Ambiente Python isolado utilizado no projeto, contendo:
 - Python **3.12.5** (é provável que outras verões sejam suportadas, mas a 3.12.5 é garantida)
@@ -199,7 +199,7 @@ pip install -r requirements.txt
 ## 6. Arquivo `.gitignore`
 
 O arquivo `.gitignore` define quais arquivos e diretórios não devem ser versionados no repositório Git, incluindo:
-- Ambiente virtual (`env_hack_gdf/`)
+- Ambiente virtual (`env_hack_cgdf/`)
 - Arquivos temporários
 - Cache de execução
 - Modelos de grande porte baixados externamente
@@ -228,18 +228,18 @@ O projeto foi desenvolvido em python na versão **3.12.5**, até o momento não 
 
 ### Criar Ambiente Virtual
 ```
-python -m venv env_hack_gdf
+python -m venv env_hack_cgdf
 ```
 
 ### Ativar Ambiente
 Windows:
 ```
-.\env_hack_gdf\Scripts\activate
+.\env_hack_cgdf\Scripts\activate
 ```
 
 Linux:
 ```
-source env_hack_gdf/bin/activate
+source env_hack_cgdf/bin/activate
 ```
 
 Dica para VS Code: Para garantir que o projeto utilize as dependências corretas, pressione `Ctrl + Shift + P`, selecione a opção `Python: Select Interpreter` e escolha o interpretador correspondente ao ambiente virtual criado.
