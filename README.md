@@ -312,6 +312,8 @@ Marcos Paulo de Oliveira"
 - A primeira célula da tabela deve se chamar `textos`.
 - As células abaixo da primeira contém, cada uma, os textos a serem analisados.
 
+Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. Note que o primeiro elemento, na primeira linha, é a label `textos`. Em seguida vem um texto simples sem quebra de linha: `Gostaria de agradecer pelos atendimentos anteriores, obrigado!`. O segundo texto é o mesmo utilizado no item anterior (`dados/texto.txt`). O terceiro texto é novamente um texto simples: `Gostaria de solicitar acesso a um documento público`.
+
 | textos |
 | :--- |
 | Gostaria de agradecer pelos atendimentos anteriores, obrigado! |
