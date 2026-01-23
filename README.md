@@ -76,6 +76,7 @@ A abordagem semântica evita bloqueios indevidos em casos como:
 
 ```
 ├── modelos/
+│   ├── info.txt
 │   └── IA_CGDF/
 │       ├── model.safetensors
 │       ├── config.json
@@ -104,16 +105,31 @@ A abordagem semântica evita bloqueios indevidos em casos como:
 
 ---
 
-## 4.1. Pasta `modelos/IA_CGDF/` — Núcleo da Inteligência
+## 4.1. Pasta `modelos/` — Núcleo da Inteligência
 
-| Arquivo | Função |
-|-------|-------|
-| `model.safetensors` | Pesos da rede neural treinada, representando o conhecimento adquirido no Fine-Tuning |
-| `config.json` | Definição da arquitetura interna do modelo (camadas, atenção, hiperparâmetros) |
-| `vocab.txt` | Vocabulário baseado em subpalavras |
-| `tokenizer.json` | Regras completas de tokenização |
-| `tokenizer_config.json` | Configurações de pré-processamento |
-| `special_tokens_map.json` | Mapeamento de tokens especiais (CLS, SEP, PAD, etc.) |
+### `info.txt`
+Guia de orientações para obtenção do modelo, detalhando procedimentos de download automático e manual.
+
+### `IA_CGDF/`
+Subdiretório que armazena os artefatos do modelo BERT após o Fine-Tuning.
+
+### `IA_CGDF/model.safetensors`
+Pesos da rede neural treinada, representando o conhecimento adquirido para classificar pedidos de informação.
+
+### `IA_CGDF/config.json`
+Definição da arquitetura interna do modelo (camadas, mecanismos de atenção e hiperparâmetros).
+
+### `IA_CGDF/vocab.txt`
+Vocabulário de subpalavras utilizado para a compreensão do léxico administrativo brasileiro.
+
+### `IA_CGDF/tokenizer.json`
+Regras completas de tokenização para o processamento de texto.
+
+### `IA_CGDF/tokenizer_config.json`
+Configurações específicas de pré-processamento de strings.
+
+### `IA_CGDF/special_tokens_map.json`
+Mapeamento de tokens estruturais da arquitetura Transformer (ex: [CLS], [SEP]).
 
 ---
 
