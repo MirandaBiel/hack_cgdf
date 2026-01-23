@@ -1,4 +1,5 @@
 env_hack_cgdf/
+modelos/IA_CGDF/
 __pycache__/
 *.pyc
 .DS_Store
