@@ -85,7 +85,7 @@ def classificar_txt():
 
     # Formatação do resultado final para o relatório de saída [cite: 143]
     legenda = "Público (Sem dados pessoais)" if pred == 0 else "Não Público (Contém dados pessoais)"
-    resultado_final = f"RESULTADO: {pred}\nSTATUS: {legenda}\n"
+    resultado_final = f"N_CLASSE: {pred}\nCLASSE: {legenda}\n"
 
     # Exporta o resultado final para o formato de destino definido
     with open(os.path.join(output_dir, "texto_classificado.txt"), "w", encoding="utf-8") as f:

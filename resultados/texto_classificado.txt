@@ -1,2 +1,2 @@
-RESULTADO: 1
-STATUS: Não Público (Contém dados pessoais)
+N_CLASSE: 1
+CLASSE: Não Público (Contém dados pessoais)

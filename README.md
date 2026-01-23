@@ -296,8 +296,8 @@ Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. 
 Exemplo correspondente ao texto do item **9.1**:
 
 ```
-RESULTADO: 1
-STATUS: Não Público (Contém dados pessoais)
+N_CLASSE: 1
+CLASSE: Não Público (Contém dados pessoais)
 ```
 
 ### 10.2. Saída em `resultados/textos_classificados.xlsx`
