@@ -216,7 +216,7 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 ### Pré-requisitos
 - Python **3.12.5**
 
-O projeto foi desenvolvido em python na versão **3.12.5**, até o momento não se encontraram limitações de execução para outras versões, contudo, caso o usuário deseje garantir o funcionamento do sistema, recomenda-se a versão de desenvolvimento utilizada.
+O projeto foi desenvolvido em Python na versão **3.12.5**, até o momento não se encontraram limitações de execução para outras versões, contudo, caso o usuário deseje garantir o funcionamento do sistema, recomenda-se a versão de desenvolvimento utilizada.
 
 ### Criar Ambiente Virtual
 ```
@@ -246,9 +246,44 @@ pip install -r requirements.txt
 
 ---
 
-## 9. Formatos de entrada dos dados
+## 9. Execução dos scripts
 
-### 9.1. Regras para `dados/texto.txt`
+Para que os caminhos relativos funcionem corretamente, você deve estar posicionado na raiz do projeto ao executar os comandos abaixo. Além disso, certifique-se de que o ambiente virtual (env_hack_cgdf) está ativado e que os arquivos em `dados` já contêm os textos que você deseja classificar.
+
+### 9.1. Baixar o modelo
+Para baixar o modelo hospedado no Hugging Face, utilize o comando:
+
+```
+python scripts/download_modelo.py
+```
+
+O modelo será armazenado no caminho `modelos/IA_CGDF`.
+
+### 9.2. Classificação de texto individual
+Para processar um único relato contido em `dados/texto.txt`, utilize o comando:
+
+```
+python scripts/classificar_txt.py
+```
+
+- Entrada: O texto em `dados/texto.txt`.
+- Saída: O resultado será gerado em `resultados/texto_classificado.txt`.
+
+### 9.3. Classificação em lote (Planilha)
+Para processar múltiplos relatos contidos em `dados/textos.xlsx`, utilize o comando:
+
+```
+python scripts/classificar_xlsx.py
+```
+
+- Entrada: Os textos da tabela `dados/textos.xlsx`.
+- Saída: Uma nova tabela com as classificações será gerada em `resultados/textos_classificados.xlsx`.
+
+---
+
+## 10. Formatos de entrada dos dados
+
+### 10.1. Regras para `dados/texto.txt`
 - Esse formato é utilizado para classificar apenas 1 único texto.
 - Não há restrições claras, basta escrever no arquivo o texto a ser classificado.
 
@@ -269,7 +304,7 @@ Atenciosamente,
 Marcos Paulo de Oliveira
 ```
 
-### 9.2. Regras para `dados/textos.xlsx`
+### 10.2. Regras para `dados/textos.xlsx`
 
 - Esse formato é utilizado para classificar uma série de textos. 
 - O arquivo consiste em uma simples tabela de apenas uma coluna.
@@ -286,28 +321,28 @@ Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. 
 
 ---
 
-## 10. Formato de saída dos dados
+## 11. Formato de saída dos dados
 
-### 10.1. Saída em `resultados/texto_classificado.txt`
+### 11.1. Saída em `resultados/texto_classificado.txt`
 - Consiste em duas linhas.
 - A primeira linha indica o resultado numérico da classificação: 0 ou 1.
 - A segunda linha indica a classe: Público ou Não Público.
 
-Exemplo correspondente ao texto do item **9.1**:
+Exemplo correspondente ao texto do item **10.1**:
 
 ```
 N_CLASSE: 1
 CLASSE: Não Público (Contém dados pessoais)
 ```
 
-### 10.2. Saída em `resultados/textos_classificados.xlsx`
+### 11.2. Saída em `resultados/textos_classificados.xlsx`
 - Consiste em uma tabela com 3 colunas.
 - A primeira linha contém a legenda de cada coluna.
 - A primeira coluna contém os textos que foram classificados.
 - A segunda coluna contém os resultados numéricos da classificação: 0 ou 1.
 - A terceira coluna contém o status da classificação: Público ou Não Público. 
 
-Exemplo correspondente ao texto do item **9.2**:
+Exemplo correspondente ao texto do item **10.2**:
 
 | textos | n_classe | classe |
 | :--- | :--- | :--- |
