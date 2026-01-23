@@ -306,13 +306,29 @@ Marcos Paulo de Oliveira"
 "Gostaria de solicitar acesso a um documento público"
 ```
 
-### 9.3. Exemplo de Estrutura XLSX
+### 9.3. Regras para `dados/textos.xlsx`
+
+- Esse é o formato mais recomendado para trabalhar com mais de 1 texto. Trata-se de uma simples tabela de apenas uma coluna.
+- A primeira célula da tabela deve se chamar `textos`.
+- As células abaixo da primeira contém, cada uma, os textos a serem analisados.
 
 | textos |
 |--------|
-| Solicito acesso ao documento do servidor Fulano |
-| Pedido de informação sobre o contrato nº 45/2023 |
-| Relatório contendo telefone e endereço do solicitante |
+| Gostaria de agradecer pelos atendimentos anteriores, obrigado! |
+| Protocolo de Reclamação - Ouvidoria Saúde
+
+Gostaria de registrar uma reclamação formal quanto ao atendimento recebido no Hospital Regional da Asa Norte (HRAN) no dia de ontem.
+
+Fui atendido pelo médico Dr. Renato Guimarães, CRM 12345-DF, que se recusou a solicitar os exames básicos de imagem, mesmo eu apresentando dores agudas.
+
+Além disso, a atendente da recepção, Sra. Eliane Martins, foi extremamente ríspida durante o processo de triagem.
+
+Solicito providências quanto à conduta dos profissionais citados.
+
+Atenciosamente,
+
+Marcos Paulo de Oliveira |
+| Gostaria de solicitar acesso a um documento público |
 
 ---
 
