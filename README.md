@@ -178,9 +178,10 @@ No formato .txt apenas a classificação do texto será exibida no arquivo de sa
 ## 4.5. Pasta `env_hack_gdf/` — Ambiente Virtual
 
 Ambiente Python isolado utilizado no projeto, contendo:
-- Python **3.12.5**
-- Dependências específicas para execução estável
+- Python **3.12.5** (é provável que outras verões sejam suportadas, mas a 3.12.5 é garantida)
+- Dependências específicas para execução estável (detalhadas em requirements.txt)
 
+O ambiente será gerado e ativado por meio dos comandos listados mais abaixo.
 ---
 
 ## 5. Arquivo `requirements.txt`
