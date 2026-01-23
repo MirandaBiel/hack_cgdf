@@ -1,4 +1,4 @@
-# Motor de Classificação Semântica para Proteção de Dados (IA CGDF)
+# Motor de Classificação Semântica para Proteção de Dados (IA_CGDF)
 
 ## 1. Objetivo da Solução
 
