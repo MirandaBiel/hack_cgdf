@@ -254,7 +254,7 @@ pip install -r requirements.txt
 
 ---
 
-## 9. Formatos e Regras de Dados
+## 9. Formatos de entrada dos dados
 
 ### 9.1. Regras para `dados/texto.txt`
 - Não há restições claras, basta escrever no arquivo o texto a ser classificado.
@@ -278,13 +278,13 @@ Marcos Paulo de Oliveira
 ```
 
 ### 9.2. Regras para `dados/textos.csv`
-- O arquivo consiste de apenas uma coluna entitulada "textos".
+- O arquivo possui apenas uma coluna de dados.
 - O arquivo deve conter obrigatoriamente a label "textos" como primeiro elemento, em seguida, nas próximas linhas adiciona-se os textos a serem analisados.
 - Use quebra de linha para separar os textos.
 - Use aspas quando o texto em si possuir quebra de linha, isso impede que ele seja interpretado como dois ou mais textos diferentes. Também podem ser usadas em textos simples, sem quebras de linha.
 - Apesar de totalmente funcional, dependendo da complexidade dos textos a serem classificados (quebras de línhas, tópicos, pontuação...), formatar esse arquivo corretamente pode se tornar uma tarefa difícil. É possível que o CSVLint falhe devido a formatação. Para evitar problemas recomenda-se usar o formato .xlsx.
 
-Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. Note que o primeiro elemento, na primeira linha, é a label `"textos"`. Em seguida vem um texto simples sem quebra de linha `Gostaria de agradecer pelos atendimentos anteriores, obrigado!`. O segundo texto é o mesmo utilizado no item anterior. O terceiro texto é novamente um texto simples `Gostaria de solicitar acesso a um documento público`.
+Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. Note que o primeiro elemento, na primeira linha, é a label `"textos"`. Em seguida vem um texto simples sem quebra de linha: `Gostaria de agradecer pelos atendimentos anteriores, obrigado!`. O segundo texto é o mesmo utilizado no item anterior (`dados/texto.txt`). O terceiro texto é novamente um texto simples: `Gostaria de solicitar acesso a um documento público`.
 
 
 ```
