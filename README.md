@@ -182,6 +182,7 @@ Ambiente Python isolado utilizado no projeto, contendo:
 - Dependências específicas para execução estável (detalhadas em requirements.txt)
 
 O ambiente será gerado e ativado por meio dos comandos listados mais abaixo.
+
 ---
 
 ## 5. Arquivo `requirements.txt`
