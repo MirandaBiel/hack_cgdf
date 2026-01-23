@@ -286,15 +286,29 @@ Aqui está um exemplo (**com dados fictícios**) de uma série de três textos. 
 
 ---
 
-## 10. Formato das Saídas
+## 10. Formato de saída dos dados
 
-### Saída em CSV/XLSX
-Inclui:
-- Texto original  
-- Label (0 ou 1)  
-- Status (Público / Não Público)
+### 10.1. Saída em `resultados/texto_classificado.txt`
+- Consiste em duas linhas.
+- A primeira linha indica o resultado numérico da classificação: 0 ou 1.
+- A segunda linha indica a classe: Público ou Não Público.
 
-### Saída em TXT
+Exemplo correspondente ao texto do item 9.1:
+
+```
+RESULTADO: 1
+STATUS: Não Público (Contém dados pessoais)
+```
+
+### 10.1. Saída em `resultados/textos_classificados.xlsx`
+- Consiste em uma tabela com 3 colunas.
+- A primeira linha contém a legenda de cada coluna.
+- A primeira coluna contém os textos que formam classificados.
+- A segunda coluna contém os resultados numéricos da classificação: 0 ou 1.
+- A terceira coluna contém o status da classificação: Público ou Não Público. 
+
+Exemplo correspondente ao texto do item 9.2:
+
 ```
 RESULTADO: 1
 STATUS: Não Público (Contém dados pessoais)

@@ -96,8 +96,8 @@ def classificar_xlsx():
             predicoes_numericas.append(label_id)
 
     # Consolida os resultados e realiza o mapeamento das categorias de saída
-    df['label'] = predicoes_numericas
-    df['status'] = df['label'].map({0: 'Público', 1: 'Não Público'})
+    df['n_classe'] = predicoes_numericas
+    df['classe'] = df['n_classe'].map({0: 'Público', 1: 'Não Público'})
     
     # Exporta o resultado final para o formato de destino definido
     df.to_excel(output_path, index=False)
