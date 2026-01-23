@@ -22,7 +22,7 @@ Foco em Desempenho (P1): A arquitetura foi refinada para maximizar a relação e
 > **Observação:** Devido ao volume de parâmetros após o treinamento, o modelo não está versionado diretamente no repositório para manter a organização.
 O modelo encontra-se hospedado no Hugging Face e pode ser obtido em:  
 https://huggingface.co/MirandaBiel/IA_CGDF/tree/main  
-O download é realizado automaticamente por meio do script `download_modelo.py` ou pode ser feito manualmente, bastando inserir o modelo na pasta `\modelos`.
+O download é realizado automaticamente por meio do script `download_modelo.py` ou pode ser feito manualmente, bastando inserir o modelo na pasta `modelos/`.
 
 ### Características Técnicas do Motor de IA
 
@@ -139,34 +139,39 @@ Mapeamento de tokens estruturais da arquitetura Transformer (ex: [CLS], [SEP]).
 Responsável por realizar o download automático do modelo a partir do Hugging Face, caso ele ainda não esteja disponível localmente. Os demais scripts verificam a existência do modelo antes da execução, e também realizam o download se necessário.
 
 ### `classificar_txt.py`
-Processa arquivos de texto simples, sendo indicado para auditorias pontuais.
+Processa um único texto em `dados/texto.txt`, e coloca o resultado em `resultados/texto_classificado.txt`.
 
 ### `classificar_csv.py`
-Executa classificação em lote utilizando arquivos CSV estruturados.
+Processa uma série de textos em `dados/textos.csv`, e coloca o resultado em `resultados/textos_classificados.csv`.
 
 ### `classificar_xlsx.py`
-Versão especializada para arquivos Excel, preservando quebras de linha, codificação e caracteres especiais.
+Processa uma série de textos em `dados/textos.xlsx`, e coloca o resultado em `resultados/textos_classificados.xlsx`.
 
 ---
 
 ## 4.3. Pasta `dados/` — Arquivos de Entrada
 
-- `texto.txt`: texto único para análise individual  
-- `textos.csv`: conjunto estruturado para análise em massa  
-- `textos.xlsx`: alternativa recomendada ao CSV, reduzindo problemas de formatação
+- `texto.txt`: arquivo que contém um único texto a ser classificado.  
+- `textos.csv`: arquivo que contém uma série de textos a serem classificados.  
+- `textos.xlsx`: arquivo que contém uma série de textos a serem classificados.
+
+Para classificar um texto ou uma série de textos desejados insira/edite o arquivo no formato desejado.
 
 ---
 
 ## 4.4. Pasta `resultados/` — Arquivos de Saída
 
-- `texto_classificado.txt`  
-- `textos_classificados.csv`  
-- `textos_classificados.xlsx`  
+Nessa pasta é possível ver o resultado da classificação de cada arquivo em `dados/`.
 
-Cada saída contém:
+- `texto_classificado.txt`: resultado da classificação de `texto.txt`.
+- `textos_classificados.csv`: resultado da classificação de `textos.csv`.  
+- `textos_classificados.xlsx`: resultado da classificação de `textos.xlsx`.  
+
+No formato .txt apenas a classificação do texto será exibida no arquivo de saída. Nos formatos .csv e .xlsx o arquivo de saída contém:
 - Texto original  
 - Label (0 ou 1)  
 - Status (Público ou Não Público)
+
 
 ---
 
