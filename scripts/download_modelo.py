@@ -15,9 +15,8 @@ def download_model():
     model_id = "MirandaBiel/IA_CGDF"
     
     # Garante que o caminho seja relativo ao local deste script e não ao terminal
-    # Isso evita que o modelo seja baixado fora da pasta do projeto
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    save_path = os.path.normpath(os.path.join(script_dir, "../modelos"))
+    save_path = os.path.normpath(os.path.join(script_dir, "../modelos", "IA_CGDF"))
     
     # Verifica se a pasta existe. Se estiver vazia ou não existir, inicia o download
     if not os.path.exists(save_path) or len(os.listdir(save_path)) <= 1:
