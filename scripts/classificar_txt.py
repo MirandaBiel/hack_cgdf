@@ -11,11 +11,12 @@ def gerenciar_modelo_autoral(caminho_destino):
     forma automática a partir do repositório autoral no Hugging Face para permitir
     a execução imediata da classificação.
     """
-    if not os.path.exists(caminho_destino):
-        print(f"Diretório do modelo não localizado em: {caminho_destino}")
+    # Verifica se a pasta não existe ou se está vazia (ex: apenas com info.txt)
+    if not os.path.exists(caminho_destino) or len(os.listdir(caminho_destino)) <= 1:
+        print(f"Diretório do modelo não localizado ou incompleto em: {caminho_destino}")
         print("Iniciando download automático do repositório MirandaBiel/IA_CGDF...")
-        # Realiza o download dos arquivos do modelo autoral para a pasta local
-        snapshot_download(repo_id="MirandaBiel/IA_CGDF", local_dir=caminho_destino)
+        # local_dir_use_symlinks=False garante o download real dos arquivos para portabilidade
+        snapshot_download(repo_id="MirandaBiel/IA_CGDF", local_dir=caminho_destino, local_dir_use_symlinks=False)
         print("Modelo autoral baixado e pronto para uso.")
 
 def limpar_texto(text):
@@ -39,7 +40,7 @@ def classificar_txt():
     # Define a raiz do projeto para localizar pastas de forma relativa, garantindo a portabilidade
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
-    # Define os caminhos absolutos para o modelo, entrada de dados e diretório de saída
+    # Define os caminhos absolutos para o modelo, entrada de dados e diretório de saída 
     model_path = os.path.join(base_dir, "modelos", "IA_CGDF")
     
     # Valida a presença do modelo no caminho especificado antes de prosseguir
@@ -82,7 +83,7 @@ def classificar_txt():
         logits = model(**inputs).logits
         pred = torch.argmax(logits, dim=-1).item()
 
-    # Formatação do resultado final para o relatório de saída
+    # Formatação do resultado final para o relatório de saída [cite: 143]
     legenda = "Público (Sem dados pessoais)" if pred == 0 else "Não Público (Contém dados pessoais)"
     resultado_final = f"RESULTADO: {pred}\nSTATUS: {legenda}\n"
 

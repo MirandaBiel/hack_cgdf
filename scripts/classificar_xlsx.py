@@ -12,11 +12,12 @@ def gerenciar_modelo_autoral(caminho_destino):
     forma automática a partir do repositório autoral no Hugging Face para permitir
     a execução imediata da classificação.
     """
-    if not os.path.exists(caminho_destino):
-        print(f"Diretório do modelo não localizado em: {caminho_destino}")
+    # Verifica se a pasta não existe ou se está vazia para garantir integridade técnica
+    if not os.path.exists(caminho_destino) or len(os.listdir(caminho_destino)) <= 1:
+        print(f"Diretório do modelo não localizado ou incompleto em: {caminho_destino}")
         print("Iniciando download automático do repositório MirandaBiel/IA_CGDF...")
-        # Realiza o download dos arquivos do modelo autoral para a pasta local
-        snapshot_download(repo_id="MirandaBiel/IA_CGDF", local_dir=caminho_destino)
+        # local_dir_use_symlinks=False garante que arquivos reais sejam baixados para portabilidade
+        snapshot_download(repo_id="MirandaBiel/IA_CGDF", local_dir=caminho_destino, local_dir_use_symlinks=False)
         print("Modelo autoral baixado e pronto para uso.")
 
 def limpar_texto(text):
@@ -71,7 +72,7 @@ def classificar_xlsx():
         print(f"Erro ao ler o arquivo Excel: {e}")
         return
 
-    # Validação da estrutura mínima necessária para o processamento
+    # Validação da estrutura mínima necessária para o processamento conforme especificado no README
     if 'textos' not in df.columns:
         print("Erro: A planilha deve conter a coluna 'textos'.")
         return
