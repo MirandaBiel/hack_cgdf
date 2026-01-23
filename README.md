@@ -156,11 +156,10 @@ Para realizar a classificação de um texto individual ou de volumes em lote, ba
 
 Nessa pasta é possível ver o resultado da classificação de cada arquivo em `dados/`.
 
-- `texto_classificado.txt`: resultado da classificação de `texto.txt`.
-- `textos_classificados.csv`: resultado da classificação de `textos.csv`.  
+- `texto_classificado.txt`: resultado da classificação de `texto.txt`. 
 - `textos_classificados.xlsx`: resultado da classificação de `textos.xlsx`.  
 
-No formato .txt apenas a classificação do texto será exibida no arquivo de saída. Nos formatos .csv e .xlsx o arquivo de saída contém:
+No formato .txt apenas a classificação do texto será exibida no arquivo de saída, já no formato .xlsx o arquivo de saída contém:
 - Texto original  
 - Label (0 ou 1)  
 - Status (Público ou Não Público)
