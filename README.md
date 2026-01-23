@@ -136,8 +136,7 @@ Mapeamento de tokens estruturais da arquitetura Transformer (ex: [CLS], [SEP]).
 ## 4.2. Pasta `scripts/` — Lógica de Execução
 
 ### `download_modelo.py`
-Responsável por realizar o download automático do modelo a partir do Hugging Face, caso ele ainda não esteja disponível localmente.  
-Os demais scripts verificam a existência do modelo antes da execução.
+Responsável por realizar o download automático do modelo a partir do Hugging Face, caso ele ainda não esteja disponível localmente. Os demais scripts verificam a existência do modelo antes da execução, e também realizam o download se necessário.
 
 ### `classificar_txt.py`
 Processa arquivos de texto simples, sendo indicado para auditorias pontuais.
