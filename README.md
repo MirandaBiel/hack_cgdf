@@ -138,9 +138,6 @@ Responsável por realizar o download automático do modelo a partir do Hugging F
 ### `classificar_txt.py`
 Processa um único texto em `dados/texto.txt`, e coloca o resultado em `resultados/texto_classificado.txt`.
 
-### `classificar_csv.py`
-Processa uma série de textos em `dados/textos.csv`, e coloca o resultado em `resultados/textos_classificados.csv`.
-
 ### `classificar_xlsx.py`
 Processa uma série de textos em `dados/textos.xlsx`, e coloca o resultado em `resultados/textos_classificados.xlsx`.
 
@@ -148,11 +145,10 @@ Processa uma série de textos em `dados/textos.xlsx`, e coloca o resultado em `r
 
 ## 4.3. Pasta `dados/` — Arquivos de Entrada
 
-- `texto.txt`: arquivo que contém um único texto a ser classificado.  
-- `textos.csv`: arquivo que contém uma série de textos a serem classificados.  
+- `texto.txt`: arquivo que contém um único texto a ser classificado.   
 - `textos.xlsx`: arquivo que contém uma série de textos a serem classificados.
 
-Para classificar um texto ou uma série de textos desejados insira/edite o arquivo no formato desejado.
+Para realizar a classificação de um texto individual ou de volumes em lote, basta inserir ou editar os conteúdos nos arquivos da pasta `dados/`, utilizando o formato de sua preferência (.txt ou .xlsx).
 
 ---
 
