@@ -313,21 +313,9 @@ Marcos Paulo de Oliveira"
 - As células abaixo da primeira contém, cada uma, os textos a serem analisados.
 
 | textos |
-|--------|
+| :--- |
 | Gostaria de agradecer pelos atendimentos anteriores, obrigado! |
-| Protocolo de Reclamação - Ouvidoria Saúde
-
-Gostaria de registrar uma reclamação formal quanto ao atendimento recebido no Hospital Regional da Asa Norte (HRAN) no dia de ontem.
-
-Fui atendido pelo médico Dr. Renato Guimarães, CRM 12345-DF, que se recusou a solicitar os exames básicos de imagem, mesmo eu apresentando dores agudas.
-
-Além disso, a atendente da recepção, Sra. Eliane Martins, foi extremamente ríspida durante o processo de triagem.
-
-Solicito providências quanto à conduta dos profissionais citados.
-
-Atenciosamente,
-
-Marcos Paulo de Oliveira |
+| Protocolo de Reclamação - Ouvidoria Saúde<br><br>Gostaria de registrar uma reclamação formal quanto ao atendimento recebido no Hospital Regional da Asa Norte (HRAN) no dia de ontem.<br><br>Fui atendido pelo médico Dr. Renato Guimarães, CRM 12345-DF, que se recusou a solicitar os exames básicos de imagem, mesmo eu apresentando dores agudas.<br><br>Além disso, a atendente da recepção, Sra. Eliane Martins, foi extremamente ríspida durante o processo de triagem.<br><br>Solicito providências quanto à conduta dos profissionais citados.<br><br>Atenciosamente,<br><br>Marcos Paulo de Oliveira |
 | Gostaria de solicitar acesso a um documento público |
 
 ---
