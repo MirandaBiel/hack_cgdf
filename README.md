@@ -223,7 +223,7 @@ O projeto foi desenvolvido em Python na versão **3.12.5**, até o momento não 
 Para iniciar, obtenha os arquivos deste repositório público realizando o download do ZIP (clicando em Code > Download ZIP e extraindo o conteúdo em sua máquina) ou utilizando o comando Git via terminal: 
 
 ```
-git clone https://github.com/MirandaBiel/hack_cgdf.git. 
+git clone https://github.com/MirandaBiel/hack_cgdf.git
 ```
 
 Na raiz do projeto execute os próximos comandos.
