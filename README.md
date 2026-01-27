@@ -215,8 +215,14 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 
 ### Pré-requisitos
 - Python **3.12.5**
+- Gerenciador de pacotes Pip
+- Git (opcional para clonagem)
 
 O projeto foi desenvolvido em Python na versão **3.12.5**, até o momento não se encontraram limitações de execução para outras versões, contudo, caso o usuário deseje garantir o funcionamento do sistema, recomenda-se a versão de desenvolvimento utilizada.
+
+Para iniciar, obtenha os arquivos deste repositório público realizando o download do ZIP (clicando em Code > Download ZIP e extraindo o conteúdo em sua máquina) ou utilizando o comando Git via terminal: git clone https://github.com/MirandaBiel/hack_cgdf.git. 
+
+Na raiz do projeto execute os próximos comandos.
 
 ### Criar Ambiente Virtual
 ```
