@@ -233,7 +233,7 @@ Para iniciar, obtenha os arquivos deste repositório público realizando o downl
 git clone https://github.com/MirandaBiel/hack_cgdf.git
 ```
 
-Na raiz do projeto execute os próximos comandos.
+**Na raiz do projeto execute os próximos comandos**.
 
 ### Criar Ambiente Virtual
 ```
