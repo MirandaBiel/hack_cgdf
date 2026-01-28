@@ -219,7 +219,7 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 - Git (opcional para clonagem)
 - Visual Studio Code (recomendado para facilitar a navegação nos arquivos e uso do terminal integrado)
 
-Na grande maioria dos casos, especialmente em computadores modernos ou naqueles que já executaram aplicações com PyTorch, **não será necessária nenhuma instalação adicional**. Caso o seu sistema já possua o ambiente configurado para ciência de dados, este pré-requisito provavelmente já terá sido atendido de forma nativa. Recomenda-se fortemente tentar a execução dos scripts sem realizar qualquer download adicional. **Somente se o modelo apresentar um erro de inicialização de DLL** (como o WinError 1114), siga o procedimento abaixo:
+Na grande maioria dos casos, especialmente em computadores modernos ou naqueles que já executaram aplicações com PyTorch, **não será necessária nenhuma instalação adicional**. Caso o seu sistema já possua o ambiente configurado para ciência de dados, o próximo pré-requisito provavelmente já terá sido atendido de forma nativa. Recomenda-se fortemente tentar a execução dos scripts **sem realizar qualquer download adicional**. **Somente se o modelo apresentar um erro de inicialização de DLL** (como o WinError 1114), siga o procedimento abaixo:
 
 - Baixe e instale o **Microsoft Visual C++ Redistributable (X64)** através do site oficial da Microsoft.
 
