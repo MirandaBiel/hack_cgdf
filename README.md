@@ -217,6 +217,11 @@ Isso mantém o repositório limpo e reduz o tamanho do versionamento.
 - Python **3.12.5**
 - Gerenciador de pacotes Pip
 - Git (opcional para clonagem)
+- Visual Studio Code (recomendado para facilitar a navegação nos arquivos e uso do terminal integrado)
+
+Na grande maioria dos casos, especialmente em computadores modernos ou naqueles que já executaram aplicações com PyTorch, **não será necessária nenhuma instalação adicional**. Caso o seu sistema já possua o ambiente configurado para ciência de dados, este pré-requisito provavelmente já terá sido atendido de forma nativa. Recomenda-se fortemente tentar a execução dos scripts sem realizar qualquer download adicional. **Somente se o modelo apresentar um erro de inicialização de DLL** (como o WinError 1114), siga o procedimento abaixo:
+
+- Baixe e instale o **Microsoft Visual C++ Redistributable (X64)** através do site oficial da Microsoft.
 
 O projeto foi desenvolvido em Python na versão **3.12.5**, até o momento não se encontraram limitações de execução para outras versões, contudo, caso o usuário deseje garantir o funcionamento do sistema, recomenda-se a versão de desenvolvimento utilizada.
 
