@@ -241,15 +241,16 @@ python -m venv env_hack_cgdf
 ```
 
 ### Ativar Ambiente
-Windows:
+No Windows (PowerShell ou CMD): Se a pasta criada for Scripts:
 ```
 .\env_hack_cgdf\Scripts\activate
 ```
 
-Linux:
+No Git Bash, WSL, Linux ou macOS: Se a pasta criada for bin:
 ```
 source env_hack_cgdf/bin/activate
 ```
+Nota: Se você estiver no Windows e notar a pasta bin em vez de Scripts, provavelmente está utilizando o terminal Git Bash. Nesse caso, utilize o comando source indicado para Linux/Git Bash.
 
 Dica para VS Code: Para garantir que o projeto utilize as dependências corretas, pressione `Ctrl + Shift + P`, selecione a opção `Python: Select Interpreter` e escolha o interpretador correspondente ao ambiente virtual criado.
 
