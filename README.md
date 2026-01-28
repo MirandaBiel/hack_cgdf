@@ -223,6 +223,8 @@ Na grande maioria dos casos, especialmente em computadores modernos ou naqueles 
 
 - Baixe e instale o **Microsoft Visual C++ Redistributable (X64)** através do site oficial da Microsoft.
 
+Caso ainda não seja possível executar o PyTorch, tente seguir alguns tutoriais de instalação e uso da ferramenta, como https://learn.microsoft.com/pt-br/windows/ai/windows-ml/tutorials/pytorch-analysis-installation.
+
 O projeto foi desenvolvido em Python na versão **3.12.5**, até o momento não se encontraram limitações de execução para outras versões, contudo, caso o usuário deseje garantir o funcionamento do sistema, recomenda-se a versão de desenvolvimento utilizada.
 
 Para iniciar, obtenha os arquivos deste repositório público realizando o download do ZIP (clicando em Code > Download ZIP e extraindo o conteúdo em sua máquina) ou utilizando o comando Git via terminal: 
