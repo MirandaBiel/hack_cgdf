@@ -241,12 +241,12 @@ python -m venv env_hack_cgdf
 ```
 
 ### Ativar Ambiente
-No Windows (PowerShell ou CMD): Se a pasta criada for Scripts:
+No Windows (PowerShell ou CMD): Se a pasta criada conter a pasta Scripts:
 ```
 .\env_hack_cgdf\Scripts\activate
 ```
 
-No Git Bash, WSL, Linux ou macOS: Se a pasta criada for bin:
+No Git Bash, WSL, Linux ou macOS: Se a pasta criada conter a pasta bin:
 ```
 source env_hack_cgdf/bin/activate
 ```
